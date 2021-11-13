@@ -46,10 +46,15 @@ public class Window extends JFrame implements ActionListener {
         JMenuItem save = new JMenuItem("Save") ;
         JMenuItem quit = new JMenuItem("Quit") ;
 
+        JMenuItem credits = new JMenuItem("Crédits");
+        credits.addActionListener(this);
+
         menu1.add(New);
         menu1.add(open);
         menu1.add(save);
         menu1.add(quit);
+
+        menu2.add(credits);
 
         m.add(menu1);
         m.add(menu2);
@@ -181,6 +186,11 @@ public class Window extends JFrame implements ActionListener {
             case "Cercle" -> {
                 System.out.println("Cercle has been clicked !");
                 drawPanel.setNameFigure("Cercle");
+            }
+            case "Crédits" -> {
+                System.out.println("Crédits has been clicked !");
+                JOptionPane info = new JOptionPane("Info");
+                JOptionPane.showInternalMessageDialog(info, "Auteur : Anne Couapel", "information", JOptionPane.INFORMATION_MESSAGE);
             }
         }
 
