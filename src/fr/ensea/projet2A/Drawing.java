@@ -13,7 +13,7 @@ public class Drawing extends JPanel implements MouseMotionListener, MouseListene
     private String nameFigure;
     private Point_class point1;
     private Point_class point2;
-    private Rectangle_class figure;
+    private Figure_class figure;
 
     public Drawing(){
         this.setBackground(Color.white);
@@ -27,7 +27,7 @@ public class Drawing extends JPanel implements MouseMotionListener, MouseListene
         addMouseMotionListener(this);
     }
 
-    public ArrayList<Rectangle_class> getList() {
+    public ArrayList<Figure_class> getList() {
         return list;
     }
 
@@ -46,26 +46,15 @@ public class Drawing extends JPanel implements MouseMotionListener, MouseListene
 
     @Override
     public void mousePressed(MouseEvent e) {
-        point1 = new Point(e.getX(),e.getY());
-        switch (nameFigure){
-            case "Rectangle" :
-                list.add(figure = new Rectangle_class(point1.getX(), point1.getY(), c));
-                break;
-
-            case "Square" :
-                list.add(figure = new Square_class(point1.getX(), point1.getY(), c));
-                break;
-
-            case "Ellipse" :
-                list.add(figure = new Ellipse_class(point1.getX(), point1.getY(), c));
-                break;
-
-            case "Circle" :
-                list.add(figure = new Cercle_class(point1.getX(), point1.getY(), c));
-                break;
+        point1 = new Point_class(e.getX(),e.getY());
+        switch (nameFigure) {
+            case "Rectangle" -> list.add(figure = new Rectangle_class(point1.getX(), point1.getY(), c));
+            case "Carre" -> list.add(figure = new Carre_class(point1.getX(), point1.getY(), c));
+            case "Ellipse" -> list.add(figure = new Ellipse_class(point1.getX(), point1.getY(), c));
+            case "Cercle" -> list.add(figure = new Cercle_class(point1.getX(), point1.getY(), c));
         }
         System.out.println(list);
-        repaint();
+        repaint(); //permet de tracer plusieurs figures
     }
 
     @Override
@@ -84,7 +73,7 @@ public class Drawing extends JPanel implements MouseMotionListener, MouseListene
 
     @Override
     public void mouseDragged(MouseEvent e) {
-        point2 = new Point(e.getX(),e.getY());
+        point2 = new Point_class(e.getX(),e.getY());
         figure.setBoundingBox(point1,point2);
         repaint();
     }
@@ -109,10 +98,9 @@ public class Drawing extends JPanel implements MouseMotionListener, MouseListene
     public void paintComponent(Graphics g){
         super.paintComponent(g);
         setBackground(Color.white);
-        for (Rectangle_class figure:list){
+        for (Figure_class figure:list){
             figure.draw(g);
             repaint();
         }
     }
-
 }

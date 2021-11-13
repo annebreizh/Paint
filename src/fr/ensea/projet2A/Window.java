@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 
 
 public class Window extends JFrame implements ActionListener {
+    private final Drawing drawPanel = new Drawing();
 
     public Window(String Title, int x, int y){
         super(Title);
@@ -18,7 +19,6 @@ public class Window extends JFrame implements ActionListener {
 
         Container contentPanel = this.getContentPane() ;
         JPanel SouthPanel = new JPanel();
-        JPanel drawPanel = new JPanel();
         JPanel colorPanel = new JPanel();
         JPanel figurePanel = new JPanel();
 
@@ -103,25 +103,25 @@ public class Window extends JFrame implements ActionListener {
         magenta.addActionListener(this);
 
         //boutons pour les figures
-        JButton rectangle = new JButton("rectangle");
+        JButton rectangle = new JButton("Rectangle");
         rectangle.setBackground(Color.white);
         figurePanel.add(rectangle);
         figurePanel.add(rectangle);
         rectangle.addActionListener(this);
 
-        JButton carre = new JButton("carre");
+        JButton carre = new JButton("Carre");
         carre.setBackground(Color.white);
         figurePanel.add(carre);
         figurePanel.add(carre);
         carre.addActionListener(this);
 
-        JButton ellipse = new JButton("ellipse");
+        JButton ellipse = new JButton("Ellipse");
         ellipse.setBackground(Color.white);
         figurePanel.add(ellipse);
         figurePanel.add(ellipse);
         ellipse.addActionListener(this);
 
-        JButton cercle = new JButton("cercle");
+        JButton cercle = new JButton("Cercle");
         cercle.setBackground(Color.white);
         figurePanel.add(cercle);
         figurePanel.add(cercle);
@@ -134,55 +134,63 @@ public class Window extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         String cmd=e.getActionCommand();
         switch (cmd) {
-            case "noir" :
+            case "noir" -> {
                 System.out.println("Noir has been clicked !");
-                break;
-
-            case "jaune" :
+                drawPanel.setC(Color.black);
+            }
+            case "jaune" -> {
                 System.out.println("Jaune has been clicked !");
-                break;
-
-            case "rouge" :
+                drawPanel.setC(Color.yellow);
+            }
+            case "rouge" -> {
                 System.out.println("Rouge has been clicked !");
-                break;
-
-            case "bleu" :
+                drawPanel.setC(Color.red);
+            }
+            case "bleu" -> {
                 System.out.println("Bleu has been clicked !");
-                break;
-
-            case "vert" :
+                drawPanel.setC(Color.blue);
+            }
+            case "vert" -> {
                 System.out.println("Vert has been clicked !");
-                break;
-
-            case "rose" :
+                drawPanel.setC(Color.green);
+            }
+            case "rose" -> {
                 System.out.println("Rose has been clicked !");
-                break;
-
-            case "cyan" :
+                drawPanel.setC(Color.pink);
+            }
+            case "cyan" -> {
                 System.out.println("Cyan has been clicked !");
-                break;
-
-            case "magenta" :
+                drawPanel.setC(Color.cyan);
+            }
+            case "magenta" -> {
                 System.out.println("Magenta has been clicked !");
-                break;
-
-            case "rectangle" :
+                drawPanel.setC(Color.magenta);
+            }
+            case "Rectangle" -> {
                 System.out.println("Rectangle has been clicked !");
-                break;
-
-            case "carre" :
+                drawPanel.setNameFigure("Rectangle");
+            }
+            case "Carre" -> {
                 System.out.println("Carre has been clicked !");
-                break;
-
-            case "ellipse" :
+                drawPanel.setNameFigure("Carre");
+            }
+            case "Ellipse" -> {
                 System.out.println("Ellipse has been clicked !");
-                break;
-
-            case "cercle" :
+                drawPanel.setNameFigure("Ellipse");
+            }
+            case "Cercle" -> {
                 System.out.println("Cercle has been clicked !");
-                break;
+                drawPanel.setNameFigure("Cercle");
+            }
         }
 
+    }
+
+    @Override
+    public String toString() {
+        return "Window{" +
+                "drawPanel=" + drawPanel +
+                '}';
     }
 
     //JOptionPane info = new JOptionPane();
