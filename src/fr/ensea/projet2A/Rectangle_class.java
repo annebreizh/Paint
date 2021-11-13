@@ -9,10 +9,6 @@ public class Rectangle_class extends Figure_class {
     private int largeur;
 
     //constructeur
-    public void Rectangle_class(){
-        this.longueur=0;
-        this.largeur=0;
-    }
     public Rectangle_class (int px, int py, Color c){
         super(new Point_class(px,py),c);
         setBoundingBox(0,0);

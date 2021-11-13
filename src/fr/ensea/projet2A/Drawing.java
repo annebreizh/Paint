@@ -27,10 +27,6 @@ public class Drawing extends JPanel implements MouseMotionListener, MouseListene
         addMouseMotionListener(this);
     }
 
-    public ArrayList<Figure_class> getList() {
-        return list;
-    }
-
     public void setC(Color c) {
         this.c = c;
     }

@@ -12,10 +12,7 @@ public abstract class Figure_class {
     public abstract void draw (Graphics g);
 
     //constructeurs
-    public Figure_class (){
-        color = new Color(255,0,0);
-        origin = new Point_class(0,0);
-    }
+
     public Figure_class (Point_class origin, Color color){
         this.color = color;
         this.origin = origin;
