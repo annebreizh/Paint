@@ -4,33 +4,36 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 public abstract class Figure_class {
-    private Point_class Point;
-    private Color color;
+    private Point_class origin;
+    private final Color color;
+
     public abstract void setBoundingBox (int heightBB, int widthBB);
+    public abstract void setBoundingBox (Point_class point1, Point_class point2);
     public abstract void draw (Graphics g);
 
     //constructeurs
     public Figure_class (){
         color = new Color(255,0,0);
-        Point = new Point_class(0,0);
+        origin = new Point_class(0,0);
     }
-    public Figure_class (Point_class Point, Color color){
+    public Figure_class (Point_class origin, Color color){
         this.color = color;
-        this.Point = Point;
+        this.origin = origin;
     }
 
     public Color getColor() {
         return color;
     }
 
-    public Point_class getPoint() {
-        return Point;
+    public Point_class getOrigin() {
+        return origin;
     }
 
-    public abstract int getPerimeter();
-    public abstract int getSurface();
+    public void setOrigin(Point_class origin) {
+        this.origin = origin;
+    }
 
     public String toString() {
-        return ("point ="+Point+ "\ncolor =" +color);
+        return ("point ="+origin+ "\ncolor =" +color);
     }
 }

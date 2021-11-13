@@ -37,9 +37,6 @@ public class Window extends JFrame implements ActionListener {
 
 
         JMenuBar m= new JMenuBar();
-      //  contentPanel.add(m,"North");
-       // m.setLayout(new GridLayout(1,2));
-
 
         JMenu menu1= new JMenu("File");
         JMenu menu2= new JMenu("A propos ");
@@ -63,56 +60,72 @@ public class Window extends JFrame implements ActionListener {
         JButton noir = new JButton("noir");
         noir.setBackground(Color.black);
         colorPanel.add(noir);
+        noir.addActionListener(this);
+
 
         JButton jaune = new JButton("jaune");
         jaune.setBackground(Color.yellow);
         colorPanel.add(jaune);
+        jaune.addActionListener(this);
+
 
         JButton rouge = new JButton("rouge");
         rouge.setBackground(Color.red);
         colorPanel.add(rouge);
+        rouge.addActionListener(this);
+
 
         JButton bleu = new JButton("bleu");
         bleu.setBackground(Color.blue);
         colorPanel.add(bleu);
+        bleu.addActionListener(this);
+
 
         JButton vert = new JButton("vert");
         vert.setBackground(Color.green);
         colorPanel.add(vert);
+        vert.addActionListener(this);
+
 
         JButton rose = new JButton("rose");
         rose.setBackground(Color.pink);
         colorPanel.add(rose);
         rose.addActionListener(this);
 
+        JButton cyan = new JButton("cyan");
+        cyan.setBackground(Color.CYAN);
+        colorPanel.add(cyan);
+        cyan.addActionListener(this);
+
+        JButton magenta = new JButton("magenta");
+        magenta.setBackground(Color.magenta);
+        colorPanel.add(magenta);
+        magenta.addActionListener(this);
+
         //boutons pour les figures
         JButton rectangle = new JButton("rectangle");
-        //rectangle.setBackground();
+        rectangle.setBackground(Color.white);
         figurePanel.add(rectangle);
         figurePanel.add(rectangle);
         rectangle.addActionListener(this);
 
         JButton carre = new JButton("carre");
-        //carre.setBackground();
+        carre.setBackground(Color.white);
         figurePanel.add(carre);
         figurePanel.add(carre);
         carre.addActionListener(this);
 
         JButton ellipse = new JButton("ellipse");
-        //ellipse.setBackground();
+        ellipse.setBackground(Color.white);
         figurePanel.add(ellipse);
         figurePanel.add(ellipse);
         ellipse.addActionListener(this);
 
         JButton cercle = new JButton("cercle");
-        //cercle.setBackground();
+        cercle.setBackground(Color.white);
         figurePanel.add(cercle);
         figurePanel.add(cercle);
         cercle.addActionListener(this);
-
-        //JButton OkButton= new JButton("Que viva ENSEA !");
-        //contentPanel.add(OkButton);
-        //OkButton.addActionListener(this);
 
         this.setVisible(true);
         }
@@ -120,14 +133,58 @@ public class Window extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         String cmd=e.getActionCommand();
-        switch (cmd)
-        {
+        switch (cmd) {
+            case "noir" :
+                System.out.println("Noir has been clicked !");
+                break;
+
+            case "jaune" :
+                System.out.println("Jaune has been clicked !");
+                break;
+
+            case "rouge" :
+                System.out.println("Rouge has been clicked !");
+                break;
+
+            case "bleu" :
+                System.out.println("Bleu has been clicked !");
+                break;
+
+            case "vert" :
+                System.out.println("Vert has been clicked !");
+                break;
+
             case "rose" :
                 System.out.println("Rose has been clicked !");
                 break;
+
+            case "cyan" :
+                System.out.println("Cyan has been clicked !");
+                break;
+
+            case "magenta" :
+                System.out.println("Magenta has been clicked !");
+                break;
+
+            case "rectangle" :
+                System.out.println("Rectangle has been clicked !");
+                break;
+
+            case "carre" :
+                System.out.println("Carre has been clicked !");
+                break;
+
+            case "ellipse" :
+                System.out.println("Ellipse has been clicked !");
+                break;
+
+            case "cercle" :
+                System.out.println("Cercle has been clicked !");
+                break;
         }
+
     }
 
-    JOptionPane info = new JOptionPane();
+    //JOptionPane info = new JOptionPane();
 }
 

@@ -14,6 +14,7 @@ public class Point_class {
         this.X = a;
         this.Y = b;
     }
+
     public int getX() {
         return X;
     }
@@ -22,12 +23,12 @@ public class Point_class {
         return Y;
     }
 
-    public void setX(int X) {
-        this.X = X;
+    public void setX(int x) {
+        X = x;
     }
 
-    public void setY(int Y) {
-        this.Y = Y;
+    public void setY(int y) {
+        Y = y;
     }
 
     public String toString() {

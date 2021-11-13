@@ -3,15 +3,52 @@ package fr.ensea.projet2A;
 import java.awt.Color;
 
 public class Cercle_class extends Ellipse_class {
-    private float r; //rayon
-    private Color color;
-
 
     public Cercle_class(int px, int py, Color color) {
         super(px, py, color);
+        setBoundingBox(0,0);
     }
 
-    public void affiche() { //Affichage des données de la classe
-        System.out.println(" Rayon : " + r);
+    @Override
+    public void setBoundingBox(int heightBB, int widthBB) {
+        if (widthBB<=heightBB){
+            setGrandAxeX(widthBB/2);
+            setPetitAxeY(widthBB/2);
+        }
+        else{
+            setGrandAxeX(heightBB/2);
+            setPetitAxeY(heightBB/2);
+        }
+    }
+
+    @Override
+    public void setBoundingBox(Point_class point1, Point_class point2) {
+        super.setBoundingBox(point1, point2);
+        if (getPetitAxeY() < getGrandAxeX()){
+            setGrandAxeX(getPetitAxeY());
+            //tirer de en haut à droite vers en bas à gauche
+            if(point1.getX() > point2.getX() & point1.getY() < point2.getY()){
+                Point_class origin = new Point_class(point1.getX()-2*getPetitAxeY(),point1.getY());
+                super.setOrigin(origin);
+            }
+            //tirer de en bas à droite vers en haut à gauche
+            if(point1.getX() > point2.getX() & point1.getY() > point2.getY()){
+                Point_class origin = new Point_class(point1.getX()-2*getPetitAxeY(),point2.getY());
+                super.setOrigin(origin);
+            }
+        }
+        else {
+            setPetitAxeY(getGrandAxeX());
+            //tirer de en bas à droite vers en haut à gauche
+            if(point1.getX() > point2.getX() & point1.getY() > point2.getY()){
+                Point_class origin = new Point_class(point2.getX(),point1.getY()-2*getGrandAxeX());
+                super.setOrigin(origin);
+            }
+            //tirer de en bas à gauche vers en haut à droite
+            if(point1.getX() < point2.getX() & point1.getY() > point2.getY()){
+                Point_class origin = new Point_class(point1.getX(),point1.getY()-2*getGrandAxeX());
+                super.setOrigin(origin);
+            }
+        }
     }
 }

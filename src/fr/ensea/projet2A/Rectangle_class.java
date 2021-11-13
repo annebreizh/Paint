@@ -4,71 +4,91 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 
-public class Rectangle_class {
-    private double longueur;
-    private double largeur;
-    private Color color;
-    //private int lenght = 0;
-    //private int width = 0;
+public class Rectangle_class extends Figure_class {
+    private int longueur;
+    private int largeur;
 
     //constructeur
-    public Rectangle_class (double px, double py, Color c){
-        this.longueur = px;
-        this.largeur = py;
-        this.color = c;
+    public void Rectangle_class(){
+        this.longueur=0;
+        this.largeur=0;
+    }
+    public Rectangle_class (int px, int py, Color c){
+        super(new Point_class(px,py),c);
+        setBoundingBox(0,0);
     }
 
     // DRAW
-
+    @Override
     public void draw (Graphics g){
-
+        g.setColor(super.getColor());
+        Point_class p = super.getOrigin();
+        g.fillRect(p.getX(),p.getY(),longueur,largeur);
     }
 
-    //getters methodes
-    public Color getColor() {
-        return color;
+
+    @Override
+    public void setBoundingBox(int heightBB, int widthBB) {
+        this.largeur=heightBB;
+        this.longueur=widthBB;
     }
 
-    public double getLongueur() {
-        return longueur;
+    public void setBoundingBox(Point_class point1, Point_class point2) {
+        //tirer de en haut à gauche vers en bas à droite
+        if (point1.getX() < point2.getX() & point1.getY() < point2.getY()){
+            this.largeur = point2.getY() - point1.getY();
+            this.longueur = point2.getX() - point1.getX();
+        }
+        //tirer de en haut à droite vers en bas à gauche
+        else if (point1.getX() > point2.getX() & point1.getY() < point2.getY()){
+            Point_class origin = new Point_class(point2.getX(),point1.getY());
+            Point_class arriv = new Point_class(point1.getX(),point2.getY());
+            super.setOrigin(origin);
+            this.largeur = arriv.getY() - origin.getY();
+            this.longueur = arriv.getX() - origin.getX();
+        }
+        //tirer de en bas à gauche vers en haut à droite
+        else if (point1.getX() < point2.getX() & point1.getY() > point2.getY()){
+            Point_class origin = new Point_class(point1.getX(),point2.getY());
+            Point_class arriv = new Point_class(point2.getX(),point1.getY());
+            super.setOrigin(origin);
+            this.largeur = arriv.getY() - origin.getY();
+            this.longueur = arriv.getX() - origin.getX();
+        }
+        //tirer de en bas à droite vers en haut à gauche
+        else if (point1.getX() > point2.getY() & point1.getY() > point2.getY()){
+            Point_class origin = new Point_class(point2.getX(), point2.getY());
+            Point_class arriv = new Point_class(point1.getX(), point1.getY());
+            super.setOrigin(origin);
+            this.largeur = arriv.getY()-origin.getY();
+            this.longueur = arriv.getX()-origin.getX();
+        }
     }
 
-    public double getLargeur() {
+    //getter et setter
+
+    public int getLargeur() {
         return largeur;
     }
 
-    //setters methodes
-    public void setLongueur(double px) {
-        this.longueur = px;
+    public int getLongueur() {
+        return longueur;
     }
 
-    public void setLargeur(double py) {
-        this.largeur = py;
+    public void setLargeur(int largeur) {
+        this.largeur = largeur;
     }
 
-    public void setBoundingBox(int heightBB, int widthBB) {
-        longueur = heightBB;
-        largeur = widthBB;
+    public void setLongueur(int longueur) {
+        this.longueur = longueur;
     }
+//override toString
 
-    /*public String toString() {
-        return ("px ="+px+ "\npy =+px+\ncolor =" +c);
-    }
-}*/
-    public double perimetre() {
-        return (this.longueur + this.largeur) * 2;
-    }
-
-    public double aire() {
-        return longueur * largeur;
-    }
-
-    //override toString
     @Override
     public String toString() {
-        return "-Longueur : " + this.longueur + " -Largeur : " + this.largeur
-                + " -Perimetre : " + this.perimetre() + " -Aire : "
-                + this.aire() + "Couleur :"+ color;
+        return "Rectangle_class{" +
+                "longueur=" + longueur +
+                ", largeur=" + largeur +
+                '}';
     }
-
 }
