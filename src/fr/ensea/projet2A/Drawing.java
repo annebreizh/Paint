@@ -15,6 +15,7 @@ public class Drawing extends JPanel implements MouseMotionListener, MouseListene
     private Point_class point2;
     private Figure_class figure;
 
+    //creation d'une fenetre et initialisation du paint
     public Drawing(){
         this.setBackground(Color.white);
         list = new ArrayList<>();
@@ -27,6 +28,7 @@ public class Drawing extends JPanel implements MouseMotionListener, MouseListene
         addMouseMotionListener(this);
     }
 
+    // setters methodes
     public void setC(Color c) {
         this.c = c;
     }
@@ -34,6 +36,8 @@ public class Drawing extends JPanel implements MouseMotionListener, MouseListene
     public void setNameFigure(String nameFigure) {
         this.nameFigure = nameFigure;
     }
+
+
 
     @Override
     public void mouseClicked(MouseEvent e) {
@@ -79,6 +83,7 @@ public class Drawing extends JPanel implements MouseMotionListener, MouseListene
 
     }
 
+    //override toString
     @Override
     public String toString() {
         return "Drawing{" +

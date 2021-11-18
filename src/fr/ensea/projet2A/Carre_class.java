@@ -9,7 +9,8 @@ public class Carre_class extends Rectangle_class {
         setBoundingBox(0,0);
     }
 
-    // Methods
+
+    // DRAW
 
     @Override
     public void setBoundingBox(int heightBB, int widthBB) {
@@ -23,6 +24,8 @@ public class Carre_class extends Rectangle_class {
         }
     }
 
+
+    // ameliorations pour dessiner dans tous les sens en changeant les points d'origine
     @Override
     public void setBoundingBox(Point_class point1, Point_class point2) {
         super.setBoundingBox(point1, point2);
@@ -54,7 +57,17 @@ public class Carre_class extends Rectangle_class {
         }
     }
 
-    //getter et setter
+    //getters et setters methodes
+    @Override
+    public int getLongueur() {
+        return super.getLongueur();
+    }
+
+    @Override
+    public int getLargeur() {
+        return super.getLargeur();
+    }
+
     @Override
     public void setLongueur(int length){
         super.setLongueur(length);
@@ -64,4 +77,6 @@ public class Carre_class extends Rectangle_class {
     public void setLargeur(int largeur) {
         super.setLargeur(largeur);
     }
+
+
 }

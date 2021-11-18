@@ -18,6 +18,9 @@ public abstract class Figure_class {
         this.origin = origin;
     }
 
+
+    //methodes getters et setters
+
     public Color getColor() {
         return color;
     }

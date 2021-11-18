@@ -202,7 +202,5 @@ public class Window extends JFrame implements ActionListener {
                 "drawPanel=" + drawPanel +
                 '}';
     }
-
-    //JOptionPane info = new JOptionPane();
 }
 

@@ -21,6 +21,7 @@ public class Cercle_class extends Ellipse_class {
         }
     }
 
+    // ameliorations pour dessiner dans tous les sens en changeant les points d'origine
     @Override
     public void setBoundingBox(Point_class point1, Point_class point2) {
         super.setBoundingBox(point1, point2);
@@ -50,5 +51,27 @@ public class Cercle_class extends Ellipse_class {
                 super.setOrigin(origin);
             }
         }
+    }
+
+    //getters et setters methodes
+    //ici ils ne sont pas necessaires mais si on souhaite modifier le code, il vaut mieux les mettre
+    @Override
+    public int getGrandAxeX() {
+        return super.getGrandAxeX();
+    }
+
+    @Override
+    public int getPetitAxeY() {
+        return super.getPetitAxeY();
+    }
+
+    @Override
+    public void setGrandAxeX(int grandAxeX) {
+        super.setGrandAxeX(grandAxeX);
+    }
+
+    @Override
+    public void setPetitAxeY(int petitAxeY) {
+        super.setPetitAxeY(petitAxeY);
     }
 }

@@ -7,7 +7,7 @@ public class Ellipse_class extends Figure_class {
     private int grandAxeX;
     private int petitAxeY;
 
-    // Constructor
+    // Constructeurs
     public Ellipse_class(int px, int py, Color color) {
         super(new Point_class(px,py),color);
         setBoundingBox(0,0);
@@ -21,6 +21,7 @@ public class Ellipse_class extends Figure_class {
         this.grandAxeX = widthBB/2;
     }
 
+    // ameliorations pour dessiner dans tous les sens en changeant les points d'origine
     @Override
     public void setBoundingBox(Point_class point1, Point_class point2) {
         //tirer de en haut à gauche vers en bas à droite
@@ -62,8 +63,7 @@ public class Ellipse_class extends Figure_class {
     }
 
 
-    //getters methodes
-
+    //getters et setters methodes
     public int getGrandAxeX() {
         return grandAxeX;
     }
@@ -72,8 +72,6 @@ public class Ellipse_class extends Figure_class {
         return petitAxeY;
     }
 
-    //setters methodes
-
     public void setGrandAxeX(int grandAxeX) {
         this.grandAxeX = grandAxeX;
     }
@@ -81,6 +79,7 @@ public class Ellipse_class extends Figure_class {
     public void setPetitAxeY(int petitAxeY) {
         this.petitAxeY = petitAxeY;
     }
+
 
     // Override toString
     @Override

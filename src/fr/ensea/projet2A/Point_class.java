@@ -10,6 +10,7 @@ public class Point_class {
         this.Y = b;
     }
 
+    //getters et setters methodes
     public int getX() {
         return X;
     }
@@ -19,6 +20,9 @@ public class Point_class {
     }
 
 
+
+
+    //toString
     public String toString() {
         return ("(X,Y) = (" + this.X + "," + this.Y + ")");
     }

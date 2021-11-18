@@ -22,13 +22,14 @@ public class Rectangle_class extends Figure_class {
         g.fillRect(p.getX(),p.getY(),longueur,largeur);
     }
 
-
     @Override
     public void setBoundingBox(int heightBB, int widthBB) {
         this.largeur=heightBB;
         this.longueur=widthBB;
     }
 
+
+    // ameliorations pour dessiner dans tous les sens en changeant les points d'origine
     public void setBoundingBox(Point_class point1, Point_class point2) {
         //tirer de en haut à gauche vers en bas à droite
         if (point1.getX() < point2.getX() & point1.getY() < point2.getY()){
@@ -61,7 +62,8 @@ public class Rectangle_class extends Figure_class {
         }
     }
 
-    //getter et setter
+
+    //getters et setters methodes
 
     public int getLargeur() {
         return largeur;
@@ -78,7 +80,9 @@ public class Rectangle_class extends Figure_class {
     public void setLongueur(int longueur) {
         this.longueur = longueur;
     }
-//override toString
+
+
+    //override toString
 
     @Override
     public String toString() {
