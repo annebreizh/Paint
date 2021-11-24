@@ -1,27 +1,28 @@
 package fr.ensea.projet2A;
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JPanel;
+import java.awt.Color;
+import java.awt.Graphics;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.util.ArrayList;
 
 public class Drawing extends JPanel implements MouseMotionListener, MouseListener {
-    private Color c;
     private final ArrayList<Figure_class> list;
+    private Color c;
     private String nameFigure;
     private Point_class point1;
     private Point_class point2;
     private Figure_class figure;
 
     //creation d'une fenetre et initialisation du paint
-    public Drawing(){
+    public Drawing() {
         this.setBackground(Color.white);
         list = new ArrayList<>();
         c = Color.black;
-        point1 = new Point_class(0,0);
-        point2 = new Point_class(0,0);
+        point1 = new Point_class(0, 0);
+        point2 = new Point_class(0, 0);
         nameFigure = "Rectangle";
         figure = null;
         addMouseListener(this);
@@ -38,7 +39,6 @@ public class Drawing extends JPanel implements MouseMotionListener, MouseListene
     }
 
 
-
     @Override
     public void mouseClicked(MouseEvent e) {
 
@@ -46,7 +46,7 @@ public class Drawing extends JPanel implements MouseMotionListener, MouseListene
 
     @Override
     public void mousePressed(MouseEvent e) {
-        point1 = new Point_class(e.getX(),e.getY());
+        point1 = new Point_class(e.getX(), e.getY());
         switch (nameFigure) {
             case "Rectangle" -> list.add(figure = new Rectangle_class(point1.getX(), point1.getY(), c));
             case "Carre" -> list.add(figure = new Carre_class(point1.getX(), point1.getY(), c));
@@ -73,8 +73,8 @@ public class Drawing extends JPanel implements MouseMotionListener, MouseListene
 
     @Override
     public void mouseDragged(MouseEvent e) {
-        point2 = new Point_class(e.getX(),e.getY());
-        figure.setBoundingBox(point1,point2);
+        point2 = new Point_class(e.getX(), e.getY());
+        figure.setBoundingBox(point1, point2);
         repaint();
     }
 
@@ -96,12 +96,12 @@ public class Drawing extends JPanel implements MouseMotionListener, MouseListene
     }
 
     @Override
-    public void paintComponent(Graphics g){
+    public void paintComponent(Graphics g) {
         super.paintComponent(g);
         setBackground(Color.white);
-        for (Figure_class figure:list){
+        for (Figure_class figure : list) {
             figure.draw(g);
-            repaint();
+            //repaint();
         }
     }
 }

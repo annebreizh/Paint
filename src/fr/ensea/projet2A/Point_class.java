@@ -5,7 +5,7 @@ public class Point_class {
     private final int Y;
 
     //constructeur
-    public Point_class (int a, int b){
+    public Point_class(int a, int b) {
         this.X = a;
         this.Y = b;
     }
@@ -18,8 +18,6 @@ public class Point_class {
     public int getY() {
         return Y;
     }
-
-
 
 
     //toString

@@ -1,50 +1,53 @@
 package fr.ensea.projet2A;
 
 
-import javax.swing.*;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 
-
 public class Window extends JFrame implements ActionListener {
     private final Drawing drawPanel = new Drawing();
 
-    public Window(String Title, int x, int y){
+    public Window(String Title, int x, int y) {
         super(Title);
-        this.setSize(x,y);
+        this.setSize(x, y);
         this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        Container contentPanel = this.getContentPane() ;
+        Container contentPanel = this.getContentPane();
         JPanel SouthPanel = new JPanel();
         JPanel colorPanel = new JPanel();
         JPanel figurePanel = new JPanel();
 
 
-
-        contentPanel.add(SouthPanel,"South");
+        contentPanel.add(SouthPanel, "South");
         contentPanel.add(drawPanel);
         SouthPanel.add(colorPanel);
         SouthPanel.add(figurePanel);
 
 
-        SouthPanel.setLayout(new GridLayout(1,2));
-        colorPanel.setLayout(new GridLayout(2,6));
-        figurePanel.setLayout(new GridLayout(2,2));
+        SouthPanel.setLayout(new GridLayout(1, 2));
+        colorPanel.setLayout(new GridLayout(2, 6));
+        figurePanel.setLayout(new GridLayout(2, 2));
 
 
+        JMenuBar m = new JMenuBar();
 
-        JMenuBar m= new JMenuBar();
+        JMenu menu1 = new JMenu("File");
+        JMenu menu2 = new JMenu("A propos ");
 
-        JMenu menu1= new JMenu("File");
-        JMenu menu2= new JMenu("A propos ");
-
-        JMenuItem New = new JMenuItem("New") ;
-        JMenuItem open = new JMenuItem("Open") ;
-        JMenuItem save = new JMenuItem("Save") ;
-        JMenuItem quit = new JMenuItem("Quit") ;
+        JMenuItem New = new JMenuItem("New");
+        JMenuItem open = new JMenuItem("Open");
+        JMenuItem save = new JMenuItem("Save");
+        JMenuItem quit = new JMenuItem("Quit");
 
         JMenuItem credits = new JMenuItem("Crédits");
         credits.addActionListener(this);
@@ -133,11 +136,11 @@ public class Window extends JFrame implements ActionListener {
         cercle.addActionListener(this);
 
         this.setVisible(true);
-        }
+    }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        String cmd=e.getActionCommand();
+        String cmd = e.getActionCommand();
         switch (cmd) {
             case "noir" -> {
                 System.out.println("Noir has been clicked !");
